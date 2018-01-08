@@ -35,7 +35,13 @@ instructionObject = {
 dummyObject = {
 	stuff: "is here",
 	things: "are also here",
-	weHaveNumbers: "1337",
+	weHaveNumbers: 1337,
+	anArray: [1, 2, 3, 4],
+	andSubObject: {
+		with:"just",
+		a:"little",
+		information:"!"
+	}
 }
 
 dummyArray = [0]
