@@ -29,7 +29,8 @@ app.use(bodyParser.json({type:'application/vnd.api+json'}));
 
 instructionObject = {
 	"go to here for an object":"/dummy/data/object" ,
-	"go to here for an array": "/dummy/data/array"
+	"go to here for an array": "/dummy/data/array",
+	"post here a number": "/saveNumbers"
 }
 
 dummyObject = {
@@ -50,6 +51,21 @@ for(x = 1;x < 20; x++){
 	dummyArray.push(dummyArray[dummyArray.length-1] + x);
 
 }
+
+userArray = [];
+
+app.post('/saveNumbers', function(req, res){
+	
+	for(x in req.body){
+		userArray.push(req.body[x]);
+	}
+
+	if(userArray.length > 5){
+		userArray.shift();
+	}
+
+	res.json(userArray);
+});
 
 app.get('/', function(req, res){
 	res.json(instructionObject);
